@@ -158,7 +158,7 @@ macro connect*[T](widgetCall: typed; widgetSignal: untyped; callFunction: untype
       `widgetCall`.`widgetSignal`(proc() {.closure.} = `callFunction`(`functionArg`))
 #-----------------------------------------------------------------------------------------------------------
 # Versione intelligente con piu argomento aggiuntivo
-macro connect*[T,R](widgetCall: untyped; widgetSignal: untyped; callFunction: untyped; functionArg: T; extraArg: R) =
+macro connect*[T,R](widgetCall: typed; widgetSignal: untyped; callFunction: untyped; functionArg: T; extraArg: R) =
   let signalParameterTypes = getSignalParameterTypes()
   let signalStr = $widgetSignal
 
